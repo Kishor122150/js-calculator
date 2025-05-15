@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .container {
+        max-width: 300px;
+        margin: auto;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simple Calculator</h1>
+      <p>Enter two numbers and select an operation to perform.</p>
+      <p>Note: This is a simple calculator and does not handle errors.</p>
+      <input type="number" id="first" placeholder="enter first num" /><br />
+      <select name="operation" id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <br />
+      <input type="number" id="second" placeholder="enter second num" /><br />
+      <input type="number" id="result" placeholder="result" disabled /><br />
+      <button onclick="handleCAlculate()">calculate</button>
+    </div>
+    <script>
+      function handleCAlculate() {
+        const first = document.getElementById("first");
+        const operation = document.getElementById("operation");
+        const second = document.getElementById("second");
+        const result = document.getElementById("result");
+        if (operation.value == "+") {
+          result.value = parseFloat(first.value) + parseFloat(second.value);
+        } else if (operation.value == "-") {
+          result.value = parseFloat(first.value) - parseFloat(second.value);
+        } else if (operation.value == "*") {
+          result.value = parseFloat(first.value) * parseFloat(second.value);
+        } else if (operation.value == "/") {
+          result.value = parseFloat(first.value) / parseFloat(second.value);
+        }
+      }
+    </script>
+  </body>
+</html>
