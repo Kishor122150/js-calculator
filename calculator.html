@@ -1,47 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Simple Calculator</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
   </head>
   <body>
-    <h2>Calculator</h2>
-    <input type="text" id="display" readonly />
+    <!-- <form onsubmit="handleSubmit(event)"> -->
+    <input
+      type="number"
+      id="first_number"
+      required
+      placeholder="First Number"
+    />
     <br />
-    <button onclick="add('1')">1</button>
-    <button onclick="add('2')">2</button>
-    <button onclick="add('3')">3</button>
-    <button onclick="add('+')">+</button>
+    <select name="" id="operation">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
     <br />
-    <button onclick="add('4')">4</button>
-    <button onclick="add('5')">5</button>
-    <button onclick="add('6')">6</button>
-    <button onclick="add('-')">-</button>
+    <input
+      type="number"
+      id="second_number"
+      required
+      placeholder="Second Number"
+    />
     <br />
-    <button onclick="add('7')">7</button>
-    <button onclick="add('8')">8</button>
-    <button onclick="add('9')">9</button>
-    <button onclick="add('*')">*</button>
+    <input type="number" id="result" placeholder="Result" disabled />
     <br />
-    <button onclick="add('0')">0</button>
-    <button onclick="clr()">C</button>
-    <button onclick="eq()">=</button>
-    <button onclick="add('/')">/</button>
-
-    <script>
-      function add(val) {
-        display.value += val;
-      }
-      function clr() {
-        display.value = "";
-      }
-      function eq() {
-        try {
-          display.value = eval(display.value);
-        } catch {
-          display.value = "Error";
-        }
-      }
-      const display = document.getElementById("display");
-    </script>
+    <button onclick="handleSubmit()">Calculate</button>
+    <!-- </form> -->
   </body>
+  <script>
+    function handleSubmit() {
+      // e.preventDefault();
+
+      const first_number = document.getElementById("first_number");
+      const operation = document.getElementById("operation");
+      const second_number = document.getElementById("second_number");
+      const result = document.getElementById("result");
+
+      // if(operation.value === '+'){
+      //     result.value = parseInt(first_number.value) + parseInt(second_number.value)
+      // } else if(operation.value === '-'){
+      //     result.value = parseInt(first_number.value) - parseInt(second_number.value)
+      // } else if(operation.value === '*'){
+      //     result.value = parseInt(first_number.value) * parseInt(second_number.value)
+      // } else if(operation.value === '/'){
+      //     result.value = parseInt(first_number.value) / parseInt(second_number.value)
+      // }
+
+      switch (operation.value) {
+        case "+":
+          result.value =
+            parseInt(first_number.value) + parseInt(second_number.value);
+          break;
+        case "-":
+          result.value =
+            parseInt(first_number.value) - parseInt(second_number.value);
+          break;
+        case "*":
+          result.value =
+            parseInt(first_number.value) * parseInt(second_number.value);
+          break;
+        case "/":
+          result.value =
+            parseInt(first_number.value) / parseInt(second_number.value);
+          break;
+        default:
+          result.value = "Invalid operation";
+          break;
+      }
+    }
+  </script>
 </html>
