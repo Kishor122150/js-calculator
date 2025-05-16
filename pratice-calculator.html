@@ -41,7 +41,7 @@
     <div class="container">
       <h1>Simple Calculator</h1>
       <p>Enter two numbers and select an operation to perform.</p>
-      <p>Note: This is a simple calculator and does not handle errors.</p>
+      <p>Note: This is a simple calculator and does not handle errors .</p>
       <input type="number" id="first" placeholder="enter first num" /><br />
       <select name="operation" id="operation">
         <option value="+">+</option>
@@ -60,14 +60,31 @@
         const operation = document.getElementById("operation");
         const second = document.getElementById("second");
         const result = document.getElementById("result");
-        if (operation.value == "+") {
-          result.value = parseFloat(first.value) + parseFloat(second.value);
-        } else if (operation.value == "-") {
-          result.value = parseFloat(first.value) - parseFloat(second.value);
-        } else if (operation.value == "*") {
-          result.value = parseFloat(first.value) * parseFloat(second.value);
-        } else if (operation.value == "/") {
-          result.value = parseFloat(first.value) / parseFloat(second.value);
+        // if (operation.value == "+") {
+        //   result.value = parseFloat(first.value) + parseFloat(second.value);
+        // } else if (operation.value == "-") {
+        //   result.value = parseFloat(first.value) - parseFloat(second.value);
+        // } else if (operation.value == "*") {
+        //   result.value = parseFloat(first.value) * parseFloat(second.value);
+        // } else if (operation.value == "/") {
+        //   result.value = parseFloat(first.value) / parseFloat(second.value);
+        // }
+        // using switch case
+        switch (operation.value) {
+          case "+":
+            result.value = parseFloat(first.value) + parseFloat(second.value);
+            break;
+          case "-":
+            result.value = parseFloat(first.value) - parseFloat(second.value);
+            break;
+          case "*":
+            result.value = parseFloat(first.value) * parseFloat(second.value);
+            break;
+          case "/":
+            result.value = parseFloat(first.value) / parseFloat(second.value);
+            break;
+          default:
+            result.value = "Invalid operation";
         }
       }
     </script>
